@@ -13,12 +13,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-success" type="submit">
+                <div class="btn-toolbar col-xs-12">
+                    <button class="btn btn-success btn-sm" type="submit">
                         {{editMode ? 'Update' : 'Add'}}
                     </button>
-                    <button class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
-                    <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+                    <button class="btn btn-danger btn-sm" type="button" (click)="onDelete()">Delete</button>
+                    <button class="btn btn-primary btn-sm" type="button" (click)="onClear()">Clear</button>
                 </div>
             </div>
         </form>

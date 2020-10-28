@@ -16,6 +16,7 @@ import { DropdownmenuDirective } from './shared/dropdownmenu.directive';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ShoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ShoppingListReducer } from './shopping-list/store/shopping-list.reducer
     UnlessDirective,
     DropdownmenuDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
