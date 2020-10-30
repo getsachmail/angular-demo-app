@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NgForm } from '@angular/forms';
 import { Ingredient } from 'src/app/shared/ingredient.modal';
-import * as ShoppingListActions from '../store/shopping-list.actions';
+import { AddIngredient, UpdateIngredient, DeleteIngredient, StopEdit } from '../store/shopping-list.actions';
 import * as fromAppReducer from '../../store/app.reducer';
 
 @Component({
@@ -36,9 +36,9 @@ export class ShoppingEditComponent implements OnInit {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode) {
-      this.store.dispatch(new ShoppingListActions.UpdateIngredient(newIngredient));
+      this.store.dispatch(UpdateIngredient({ payload: newIngredient }));
     } else {
-      this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));
+      this.store.dispatch(AddIngredient({ payload: newIngredient }));
     }
 
     this.editMode = false;
@@ -47,12 +47,12 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onDelete() {
-    this.store.dispatch(new ShoppingListActions.DeleteIngredient());
+    this.store.dispatch(DeleteIngredient());
   }
 
   onClear() {
     this.editMode = false;
-    this.store.dispatch(new ShoppingListActions.StopEdit());
+    this.store.dispatch(StopEdit());
   }
 
 }

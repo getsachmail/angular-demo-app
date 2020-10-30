@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
+import { AddIngredients } from '../shopping-list/store/shopping-list.actions';
 import { Store } from '@ngrx/store';
 import { Recipe } from './Recipe.modal';
 import { Ingredient } from '../shared/ingredient.modal';
@@ -37,7 +37,7 @@ export class RecipesService {
   }
 
   public addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+    this.store.dispatch(AddIngredients({ payload: ingredients }));
   }
 
   public getRecipe(index: number) {

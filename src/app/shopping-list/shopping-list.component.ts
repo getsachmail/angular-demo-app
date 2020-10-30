@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.modal';
-import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
+import { StartEdit } from '../shopping-list/store/shopping-list.actions';
 import * as fromAppReducer from '../store/app.reducer';
 
 @Component({
@@ -20,7 +20,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onEdit(index: number) {
-    this.store.dispatch(new ShoppingListActions.StartEdit(index));
+    this.store.dispatch(StartEdit({ payload: index }));
   }
 
   ngOnDestroy(): void {
